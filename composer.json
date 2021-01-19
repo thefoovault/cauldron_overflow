@@ -27,6 +27,7 @@
     "symfony/framework-bundle": "^5.2",
     "symfony/dotenv": "^5.2",
     "symfony/yaml": "^5.2",
-    "symfony/console": "^5.2"
+    "symfony/console": "^5.2",
+    "sensio/framework-extra-bundle": "^5.6"
   }
 }
