@@ -8,3 +8,14 @@ services:
     working_dir: /app
     ports:
       - 9001:9000
+
+  webserver:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - 8000:80
+    volumes:
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+      - ./public/:/app/public/
+    depends_on:
+      - app

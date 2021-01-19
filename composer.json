@@ -4,24 +4,29 @@
   "type": "project",
   "authors": [
     {
-      "name": "raseal "
-    },
-    {
       "name":"thefoovault"
     }
   ],
   "autoload": {
     "psr-4": {
-      "Dev4Fun\\": "src/"
+      "Shared\\": "src/Shared",
+      "CauldronOverflow\\": "src/CauldronOverflow",
+      "CauldronOverflowWeb\\": "apps/CauldronOverflowWeb/src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Test\\": "test"
+      "CauldronOverflow\\Test\\": "test"
     }
   },
   "require-dev": {
     "phpunit/phpunit": "^8.5",
     "johnkary/phpunit-speedtrap": "^3.2"
+  },
+  "require": {
+    "symfony/framework-bundle": "^5.2",
+    "symfony/dotenv": "^5.2",
+    "symfony/yaml": "^5.2",
+    "symfony/console": "^5.2"
   }
 }
