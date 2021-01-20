@@ -11,10 +11,10 @@ class QuestionController extends AbstractController
 {
     public function homepage(): Response
     {
-        return new Response('Hello wold!');
+        return $this->render('question/homepage.html.twig');
     }
 
-    public function show($slug)
+    public function show($slug): Response
     {
         $answers = [
             "First answer",
