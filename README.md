@@ -1,40 +1,14 @@
-# Installation
+# Cauldron Overflow
+
+Symfony 5 workshop from Symfony casts (with `docker` and `decoupled Symfony`)
+
+The goal is learning Symfony while building a StackOverflow-like app.
+
+## Installation
 
 Execute `make build` to download Docker container and install all composer dependencies.
 
-### Enabling  xdebug in PhpStorm
-
-The xdebug port is defined in the `docker-compose.yml`:
-``` yaml
-services:
-  app:
-    build: .
-    volumes:
-      - ./:/app
-    working_dir: /app
-    ports:
-      - 9001:9000
-```
-
-In this case, use port `9000` in the PhpStorm config:
-
-![Xdebug ports](docs/images/xdebug_ports.png)
-
-Then, we need to configure servers and how to accept xdebug connections & mappings: 
-
-![Xdebug mappings](docs/images/xdebug_mappings.png)
-
-### Enabling phpUnit in PhpStorm
-
-First create a remote interpret for `phpUnit` referencing the Docker container 
-
-![Xdebug mappings](docs/images/phpunit_remote.png)
-
-Then, on the IDE top dropdown select `Edit configuration` and create a new one called `Full Unit`:
-
-![Xdebug mappings](docs/images/phpunit_config.png)
-
-# Basic usage
+## Basic usage
 
 Once project is downloaded, we will execute:
 - `make start` to start the container.
@@ -42,3 +16,59 @@ Once project is downloaded, we will execute:
 
 For more actions, execute `make` without arguments.
 
+## Useful tips
+
+### Install and configure decoupled Symfony flex
+
+````
+ composer require symfony/flex
+````
+
+Then modify `composer.json` to add inside `extra` (replacing `newRoute` with the appropriate one):
+
+````
+ "extra": {
+     "bin-dir": "newRoute/bin",
+     "config-dir": "newRoute/config",
+     "src-dir": "newRoute/src",
+     "var-dir": "newRoute/var",
+     "public-dir": "newRoute/public"
+   },
+
+````
+
+**Disclaimer**: Extracted from https://symfony.com/doc/3.4/setup/flex.html:
+
+> If you customize these paths, **some files copied from a recipe still may contain references to the original path**. In other words: you may need to update some things manually after a recipe is installed.
+
+### Used recipes
+
+#### Templates
+````
+ composer require template
+````
+
+It installs and configures:
+- symfony/twig-bundle
+- twig/extra-bundle
+- twig/twig
+
+**Disclaimer**: It creates a `templates` folder, but it creates in the `/` of the project instead of the appropriate folder, when using decoupled Symfony.  
+
+#### Profiler
+
+````
+ composer require profiler --dev
+````
+It installs and configures the Symfony profiler bar. Only recommended in dev environments.
+
+#### Debug
+````
+ composer require debug
+````
+It installs and configures all debug tools:
+- symfony/debug-bundle
+- symfony/monolog-bundle
+- symfony/stopwatch
+- symfony/web-profiler-bundle
+- symfony/var-dumper
