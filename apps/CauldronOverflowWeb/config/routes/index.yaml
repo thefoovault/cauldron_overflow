@@ -1,0 +1,9 @@
+index:
+  path: /
+  controller: CauldronOverflowWeb\Controller\QuestionController::homepage
+  methods: GET
+
+show:
+  path: /questions/{slug}
+  controller: CauldronOverflowWeb\Controller\QuestionController::show
+  methods: GET

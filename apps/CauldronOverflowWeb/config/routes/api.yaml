@@ -1,0 +1,4 @@
+comment_vote:
+  path: /comments/{id}/vote/{direction<up|down>}
+  controller: CauldronOverflowWeb\Controller\CommentController::commentVote
+  methods: POST

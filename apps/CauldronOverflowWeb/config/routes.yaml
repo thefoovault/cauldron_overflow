@@ -1,7 +1,0 @@
-index:
-    path: /
-    controller: CauldronOverflowWeb\Controller\QuestionController::homepage
-
-show:
-    path: /questions/{slug}
-    controller: CauldronOverflowWeb\Controller\QuestionController::show
