@@ -37,7 +37,8 @@
     "symfony/stopwatch": "^5.2",
     "symfony/web-profiler-bundle": "^5.2",
     "symfony/var-dumper": "^5.2",
-    "symfony/asset": "^5.2"
+    "symfony/asset": "^5.2",
+    "knplabs/knp-markdown-bundle": "^1.8"
   },
   "extra": {
     "bin-dir": "apps/CauldronOverflowWeb/bin",

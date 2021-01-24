@@ -1,4 +1,10 @@
 {
+    "knplabs/knp-markdown-bundle": {
+        "version": "1.8.1"
+    },
+    "michelf/php-markdown": {
+        "version": "1.9.0"
+    },
     "monolog/monolog": {
         "version": "2.2.0"
     },
