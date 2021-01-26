@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace CauldronOverflowWeb\Controller;
 
-use CauldronOverflowWeb\Services\MarkdownHelper;
+use CauldronOverflow\Services\MarkdownHelper;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 

@@ -11,3 +11,7 @@ services:
     resource: '../../../src/CauldronOverflow/'
   Shared\:
     resource: '../../../src/Shared/'
+
+  CauldronOverflow\Services\MarkdownHelper:
+    arguments:
+      $isDebug: '%kernel.debug%'
