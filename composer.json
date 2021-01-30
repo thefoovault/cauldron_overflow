@@ -21,7 +21,8 @@
   },
   "require-dev": {
     "phpunit/phpunit": "^8.5",
-    "johnkary/phpunit-speedtrap": "^3.2"
+    "johnkary/phpunit-speedtrap": "^3.2",
+    "symfony/maker-bundle": "^1.28"
   },
   "require": {
     "symfony/framework-bundle": "^5.2",

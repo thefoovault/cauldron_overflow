@@ -1,4 +1,7 @@
 {
+    "doctrine/inflector": {
+        "version": "2.0.3"
+    },
     "knplabs/knp-markdown-bundle": {
         "version": "1.8.1"
     },
@@ -7,6 +10,9 @@
     },
     "monolog/monolog": {
         "version": "2.2.0"
+    },
+    "nikic/php-parser": {
+        "version": "v4.10.4"
     },
     "symfony/asset": {
         "version": "v5.2.1"
@@ -25,6 +31,15 @@
     },
     "symfony/debug-pack": {
         "version": "v1.0.9"
+    },
+    "symfony/maker-bundle": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.0",
+            "ref": "fadbfe33303a76e25cb63401050439aa9b1a9c7f"
+        }
     },
     "symfony/monolog-bridge": {
         "version": "v5.2.1"
