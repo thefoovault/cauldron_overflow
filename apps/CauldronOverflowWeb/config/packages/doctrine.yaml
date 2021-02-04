@@ -16,5 +16,5 @@ doctrine:
                 is_bundle: false
                 type: xml
                 dir: '%kernel.project_dir%/../../src/CauldronOverflow/Infrastructure/Persistence/Doctrine/'
-                prefix: 'CauldronOverflow\Domain\'
+                prefix: 'CauldronOverflow\Domain'
                 alias: CauldronOverflow

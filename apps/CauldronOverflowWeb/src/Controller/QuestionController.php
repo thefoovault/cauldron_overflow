@@ -5,13 +5,15 @@ declare(strict_types=1);
 namespace CauldronOverflowWeb\Controller;
 
 use CauldronOverflow\Infrastructure\Services\MarkdownHelper;
+use Doctrine\DBAL\Connection;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
 class QuestionController extends AbstractController
 {
-    public function homepage(): Response
+    public function homepage(Connection $connection): Response
     {
+        $connection->connect();
         return $this->render('question/homepage.html.twig');
     }
 
