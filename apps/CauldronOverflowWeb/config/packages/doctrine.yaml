@@ -1,0 +1,20 @@
+doctrine:
+    dbal:
+        dbname: '%env(resolve:DATABASE_NAME)%'
+        host: '%env(resolve:DATABASE_HOST)%'
+        port: '%env(resolve:DATABASE_PORT)%'
+        user: '%env(resolve:DATABASE_USER)%'
+        password: '%env(resolve:DATABASE_PASSWORD)%'
+        driver: '%env(resolve:DATABASE_DRIVER)%'
+        server_version: '8.0'
+    orm:
+        auto_generate_proxy_classes: true
+        naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
+        auto_mapping: true
+        mappings:
+            CauldronOverflow:
+                is_bundle: false
+                type: xml
+                dir: '%kernel.project_dir%/../../src/CauldronOverflow/Infrastructure/Persistence/Doctrine/'
+                prefix: 'CauldronOverflow\Domain\'
+                alias: CauldronOverflow

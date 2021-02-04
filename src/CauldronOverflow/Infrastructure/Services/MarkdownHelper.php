@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CauldronOverflow\Services;
+namespace CauldronOverflow\Infrastructure\Services;
 
 use Knp\Bundle\MarkdownBundle\MarkdownParserInterface;
 use Symfony\Contracts\Cache\CacheInterface;
