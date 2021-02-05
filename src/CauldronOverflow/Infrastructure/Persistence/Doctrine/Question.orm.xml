@@ -4,9 +4,14 @@
         <id name="id" type="guid">
             <generator strategy="UUID" />
         </id>
+
+        <unique-constraints>
+            <unique-constraint columns="slug" name="unique_slug" />
+        </unique-constraints>
+
         <field name="name" type="string" length="255" />
         <field name="question" type="text" />
-        <field name="slug" type="string" length="100" />
+        <field name="slug" type="string" length="100"  />
         <field name="createdAt" column="created_at" type="datetime" />
     </entity>
 
