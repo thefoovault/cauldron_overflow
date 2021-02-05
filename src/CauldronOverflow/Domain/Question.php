@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace CauldronOverflow\Domain;
 
 use DateTime;
+use Shared\Domain\Entity;
 
-class Question
+class Question implements Entity
 {
     private string $id;
     private string $name;

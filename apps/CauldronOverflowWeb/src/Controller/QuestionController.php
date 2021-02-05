@@ -5,10 +5,9 @@ declare(strict_types=1);
 namespace CauldronOverflowWeb\Controller;
 
 use CauldronOverflow\Domain\Question;
+use CauldronOverflow\Domain\QuestionRepository;
 use CauldronOverflow\Infrastructure\Services\MarkdownHelper;
 use DateTime;
-use Doctrine\DBAL\Connection;
-use Doctrine\ORM\EntityManagerInterface;
 use Ramsey\Uuid\Uuid;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,9 +15,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 class QuestionController extends AbstractController
 {
-    public function homepage(Connection $connection): Response
+    public function homepage(): Response
     {
-        $connection->connect();
         return $this->render('question/homepage.html.twig');
     }
 
@@ -43,7 +41,7 @@ class QuestionController extends AbstractController
         );
     }
 
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, QuestionRepository $questionRepository): Response
     {
         $parameters = json_decode($request->getContent(), true);
 
@@ -55,8 +53,7 @@ class QuestionController extends AbstractController
             new DateTime()
         );
 
-        $entityManager->persist($question);
-        $entityManager->flush();
+        $questionRepository->save($question);
 
         return new Response(sprintf('Well hallo! The shiny question is id %s, slug %s',
             $question->id(),
