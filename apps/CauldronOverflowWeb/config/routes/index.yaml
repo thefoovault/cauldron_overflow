@@ -3,6 +3,11 @@ index:
   controller: CauldronOverflowWeb\Controller\QuestionController::homepage
   methods: GET
 
+new:
+  path: /questions/new
+  controller: CauldronOverflowWeb\Controller\QuestionController::new
+  methods: POST
+
 show:
   path: /questions/{slug}
   controller: CauldronOverflowWeb\Controller\QuestionController::show

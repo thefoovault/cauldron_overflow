@@ -44,7 +44,9 @@
     "doctrine/doctrine-bundle": "^2.2",
     "doctrine/doctrine-migrations-bundle": "^3.0",
     "doctrine/orm": "^2.8",
-    "symfony/proxy-manager-bridge": "^5.2"
+    "symfony/proxy-manager-bridge": "^5.2",
+    "ext-json": "^7.4",
+    "ramsey/uuid": "^4.1"
   },
   "extra": {
     "bin-dir": "apps/CauldronOverflowWeb/bin",

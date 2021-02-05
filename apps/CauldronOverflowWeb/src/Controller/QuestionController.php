@@ -4,9 +4,14 @@ declare(strict_types=1);
 
 namespace CauldronOverflowWeb\Controller;
 
+use CauldronOverflow\Domain\Question;
 use CauldronOverflow\Infrastructure\Services\MarkdownHelper;
+use DateTime;
 use Doctrine\DBAL\Connection;
+use Doctrine\ORM\EntityManagerInterface;
+use Ramsey\Uuid\Uuid;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class QuestionController extends AbstractController
@@ -36,5 +41,26 @@ class QuestionController extends AbstractController
                 'questionText' => $parsedQuestionText,
             ]
         );
+    }
+
+    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $parameters = json_decode($request->getContent(), true);
+
+        $question = new Question(
+            Uuid::uuid4()->serialize(),
+            $parameters['name'],
+            $parameters['question'],
+            $parameters['slug'],
+            new DateTime()
+        );
+
+        $entityManager->persist($question);
+        $entityManager->flush();
+
+        return new Response(sprintf('Well hallo! The shiny question is id %s, slug %s',
+            $question->id(),
+            $question->slug()
+        ));
     }
 }
