@@ -23,4 +23,16 @@ class MysqlQuestionRepository extends DoctrineRepository implements QuestionRepo
             ]
         );
     }
+
+    /**
+     * @return Question[]
+     */
+    public function findAllOrderedByNewest(): array
+    {
+        return $this->repository(Question::class)->createQueryBuilder('q')
+            ->andWhere('q.createdAt IS NOT NULL')
+            ->orderBy('q.createdAt', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
 }

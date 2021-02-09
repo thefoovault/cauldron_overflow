@@ -6,7 +6,6 @@ namespace CauldronOverflowWeb\Controller;
 
 use CauldronOverflow\Domain\Question;
 use CauldronOverflow\Domain\QuestionRepository;
-use CauldronOverflow\Infrastructure\Services\MarkdownHelper;
 use DateTime;
 use Ramsey\Uuid\Uuid;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,12 +14,18 @@ use Symfony\Component\HttpFoundation\Response;
 
 class QuestionController extends AbstractController
 {
-    public function homepage(): Response
+    public function homepage(QuestionRepository $questionRepository): Response
     {
-        return $this->render('question/homepage.html.twig');
+        $questions = $questionRepository->findAllOrderedByNewest();
+        return $this->render(
+            'question/homepage.html.twig',
+            [
+                'questions' => $questions,
+            ]
+        );
     }
 
-    public function show($slug, MarkdownHelper $markdownHelper, QuestionRepository $questionRepository): Response
+    public function show($slug, QuestionRepository $questionRepository): Response
     {
         $question = $questionRepository->findBySlug($slug);
 
