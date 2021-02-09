@@ -12,7 +12,7 @@
         <field name="name" type="string" length="255" />
         <field name="question" type="text" />
         <field name="slug" type="string" length="100"  />
-        <field name="createdAt" column="created_at" type="datetime" />
+        <field name="createdAt" column="created_at" type="datetime" nullable="true" />
     </entity>
 
 </doctrine-mapping>

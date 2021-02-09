@@ -14,4 +14,13 @@ class MysqlQuestionRepository extends DoctrineRepository implements QuestionRepo
     {
         $this->persist($question);
     }
+
+    public function findBySlug(string $slug): ?Question
+    {
+        return $this->repository(Question::class)->findOneBy(
+            [
+                'slug' => $slug
+            ]
+        );
+    }
 }

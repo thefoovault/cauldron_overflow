@@ -15,3 +15,7 @@ services:
   CauldronOverflow\Infrastructure\Services\MarkdownHelper:
     arguments:
       $isDebug: '%kernel.debug%'
+
+  CauldronOverflow\Infrastructure\Persistence\Question\MysqlQuestionRepository:
+    arguments:
+      $entityManager: '@doctrine.orm.entity_manager'
