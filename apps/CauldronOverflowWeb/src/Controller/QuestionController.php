@@ -66,4 +66,23 @@ class QuestionController extends AbstractController
             $question->slug()
         ));
     }
+
+    public function vote(string $slug, string $direction, QuestionRepository $questionRepository): Response
+    {
+        $question = $questionRepository->findBySlug($slug);
+
+        if ($direction === 'up') {
+            $question->upVote();
+        } else {
+            $question->downVote();
+        }
+
+        $questionRepository->save($question);
+
+        return $this->json(
+            [
+                "votes" => $question->formattedVotes()
+            ]
+        );
+    }
 }

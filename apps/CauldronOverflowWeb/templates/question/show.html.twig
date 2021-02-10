@@ -19,10 +19,10 @@
                                             (unpublished)
                                         {% endif %}
                                     </small>
-                                    <div class="vote-arrows vote-arrows-alt flex-fill pt-2" style="min-width: 90px;">
-                                        <button class="vote-up btn btn-link" name="direction" value="up"><i class="far fa-arrow-alt-circle-up"></i></button>
-                                        <button class="vote-down btn btn-link" name="direction" value="down"><i class="far fa-arrow-alt-circle-down"></i></button>
-                                        <span>{{ question.formattedVotes }}</span>
+                                    <div class="vote-arrows flex-fill pt-2 vote-arrows-alt" style="min-width: 90px;" data-slug="{{ question.slug }}">
+                                        <a class="vote-up" href="#" data-direction="up"><i class="far fa-arrow-alt-circle-up"></i></a>
+                                        <a class="vote-down" href="#" data-direction="down"><i class="far fa-arrow-alt-circle-down"></i></a>
+                                        <span class="js-vote-total">{{ question.formattedVotes }}</span>
                                     </div>
                                 </div>
                             </div>

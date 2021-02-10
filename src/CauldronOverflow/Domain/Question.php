@@ -67,4 +67,14 @@ class Question implements Entity
         $prefix = $this->votes() >=0 ? '+' : '-';
         return sprintf('%s %d', $prefix, abs($this->votes()));
     }
+
+    public function upVote(): void
+    {
+        $this->votes++;
+    }
+
+    public function downVote(): void
+    {
+        $this->votes--;
+    }
 }

@@ -1,6 +1,6 @@
-let $container = $('.js-vote-arrows');
+let $answerVotes = $('.js-vote-arrows');
 
-$container.find('a').on('click', (e) => {
+$answerVotes.find('a').on('click', (e) => {
     e.preventDefault();
 
     let $link = $(e.currentTarget);
@@ -9,6 +9,23 @@ $container.find('a').on('click', (e) => {
         url: '/comments/10/vote/' + $link.data('direction'),
         method: 'POST'
     }).then((data) => {
-        $container.find('.js-vote-total').text(data.votes);
+        $answerVotes.find('.js-vote-total').text(data.votes);
+    });
+});
+
+
+let $questionVotes = $('.vote-arrows-alt');
+
+$questionVotes.find('a').on('click', (e) => {
+    e.preventDefault();
+
+    let $link = $(e.currentTarget);
+    let slug = $questionVotes.data('slug');
+
+    $.ajax({
+        url: '/questions/' + slug +'/vote/' + $link.data('direction'),
+        method: 'POST'
+    }).then((data) => {
+        $questionVotes.find('.js-vote-total').text(data.votes);
     });
 });
