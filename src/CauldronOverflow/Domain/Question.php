@@ -14,19 +14,22 @@ class Question implements Entity
     private string $question;
     private string $slug;
     private DateTime $createdAt;
+    private int $votes;
 
     public function __construct(
         string $id,
         string $name,
         string $question,
         string $slug,
-        DateTime $createdAt
+        DateTime $createdAt,
+        int $votes = 0
     ) {
         $this->id = $id;
         $this->name = $name;
         $this->question = $question;
         $this->slug = $slug;
         $this->createdAt = $createdAt;
+        $this->votes = $votes;
     }
 
     public function id(): string
@@ -52,5 +55,16 @@ class Question implements Entity
     public function createdAt(): DateTime
     {
         return $this->createdAt;
+    }
+
+    public function votes(): int
+    {
+        return $this->votes;
+    }
+
+    public function formattedVotes(): string
+    {
+        $prefix = $this->votes() >=0 ? '+' : '-';
+        return sprintf('%s %d', $prefix, abs($this->votes()));
     }
 }
