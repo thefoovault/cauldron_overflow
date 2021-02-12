@@ -63,6 +63,9 @@
     "doctrine/inflector": {
         "version": "2.0.3"
     },
+    "doctrine/instantiator": {
+        "version": "1.3.1"
+    },
     "doctrine/lexer": {
         "version": "1.2.1"
     },
@@ -80,6 +83,9 @@
     },
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.3"
+    },
+    "johnkary/phpunit-speedtrap": {
+        "version": "v3.2.0"
     },
     "knplabs/knp-markdown-bundle": {
         "version": "1.8.1"
@@ -102,8 +108,70 @@
     "monolog/monolog": {
         "version": "2.2.0"
     },
+    "myclabs/deep-copy": {
+        "version": "1.10.1"
+    },
     "nikic/php-parser": {
         "version": "v4.10.4"
+    },
+    "phar-io/manifest": {
+        "version": "1.0.3"
+    },
+    "phar-io/version": {
+        "version": "2.0.1"
+    },
+    "phpdocumentor/reflection-common": {
+        "version": "2.2.0"
+    },
+    "phpdocumentor/reflection-docblock": {
+        "version": "5.2.0"
+    },
+    "phpdocumentor/type-resolver": {
+        "version": "1.3.0"
+    },
+    "phpspec/prophecy": {
+        "version": "1.11.1"
+    },
+    "phpunit/php-code-coverage": {
+        "version": "7.0.10"
+    },
+    "phpunit/php-file-iterator": {
+        "version": "2.0.2"
+    },
+    "phpunit/php-text-template": {
+        "version": "1.2.1"
+    },
+    "phpunit/php-timer": {
+        "version": "2.1.2"
+    },
+    "phpunit/php-token-stream": {
+        "version": "3.1.1"
+    },
+    "phpunit/phpunit": {
+        "version": "4.7",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.7",
+            "ref": "477e1387616f39505ba79715f43f124836020d71"
+        },
+        "files": [
+            ".env.test",
+            "phpunit.xml.dist",
+            "tests/bootstrap.php"
+        ]
+    },
+    "psr/cache": {
+        "version": "1.0.1"
+    },
+    "psr/container": {
+        "version": "1.0.0"
+    },
+    "psr/event-dispatcher": {
+        "version": "1.0.0"
+    },
+    "psr/log": {
+        "version": "1.1.3"
     },
     "ramsey/collection": {
         "version": "1.1.3"
@@ -111,8 +179,65 @@
     "ramsey/uuid": {
         "version": "4.1.1"
     },
+    "sebastian/code-unit-reverse-lookup": {
+        "version": "1.0.1"
+    },
+    "sebastian/comparator": {
+        "version": "3.0.2"
+    },
+    "sebastian/diff": {
+        "version": "3.0.2"
+    },
+    "sebastian/environment": {
+        "version": "4.2.3"
+    },
+    "sebastian/exporter": {
+        "version": "3.1.2"
+    },
+    "sebastian/global-state": {
+        "version": "3.0.0"
+    },
+    "sebastian/object-enumerator": {
+        "version": "3.0.3"
+    },
+    "sebastian/object-reflector": {
+        "version": "1.1.1"
+    },
+    "sebastian/recursion-context": {
+        "version": "3.0.0"
+    },
+    "sebastian/resource-operations": {
+        "version": "2.0.1"
+    },
+    "sebastian/type": {
+        "version": "1.1.3"
+    },
+    "sebastian/version": {
+        "version": "2.0.1"
+    },
     "symfony/asset": {
         "version": "v5.2.1"
+    },
+    "symfony/cache": {
+        "version": "v5.2.1"
+    },
+    "symfony/cache-contracts": {
+        "version": "v2.2.0"
+    },
+    "symfony/config": {
+        "version": "v5.2.1"
+    },
+    "symfony/console": {
+        "version": "5.1",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "5.1",
+            "ref": "c6d02bdfba9da13c22157520e32a602dbee8a75c"
+        },
+        "files": [
+            "apps/CauldronOverflowWeb/bin/console"
+        ]
     },
     "symfony/debug-bundle": {
         "version": "4.1",
@@ -129,8 +254,73 @@
     "symfony/debug-pack": {
         "version": "v1.0.9"
     },
+    "symfony/dependency-injection": {
+        "version": "v5.2.1"
+    },
+    "symfony/deprecation-contracts": {
+        "version": "v2.2.0"
+    },
     "symfony/doctrine-bridge": {
         "version": "v5.2.2"
+    },
+    "symfony/dotenv": {
+        "version": "v5.2.1"
+    },
+    "symfony/error-handler": {
+        "version": "v5.2.1"
+    },
+    "symfony/event-dispatcher": {
+        "version": "v5.2.1"
+    },
+    "symfony/event-dispatcher-contracts": {
+        "version": "v2.2.0"
+    },
+    "symfony/filesystem": {
+        "version": "v5.2.1"
+    },
+    "symfony/finder": {
+        "version": "v5.2.1"
+    },
+    "symfony/flex": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.0",
+            "ref": "c0eeb50665f0f77226616b6038a9b06c03752d8e"
+        },
+        "files": [
+            ".env"
+        ]
+    },
+    "symfony/framework-bundle": {
+        "version": "5.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "5.2",
+            "ref": "6ec87563dcc85cd0c48856dcfbfc29610506d250"
+        },
+        "files": [
+            "apps/CauldronOverflowWeb/config/packages/cache.yaml",
+            "apps/CauldronOverflowWeb/config/packages/framework.yaml",
+            "apps/CauldronOverflowWeb/config/packages/test/framework.yaml",
+            "apps/CauldronOverflowWeb/config/preload.php",
+            "apps/CauldronOverflowWeb/config/routes/dev/framework.yaml",
+            "apps/CauldronOverflowWeb/config/services.yaml",
+            "apps/CauldronOverflowWeb/public/index.php",
+            "apps/CauldronOverflowWeb/src/Controller/.gitignore",
+            "apps/CauldronOverflowWeb/src/Kernel.php"
+        ]
+    },
+    "symfony/http-client-contracts": {
+        "version": "v2.3.1"
+    },
+    "symfony/http-foundation": {
+        "version": "v5.2.1"
+    },
+    "symfony/http-kernel": {
+        "version": "v5.2.1"
     },
     "symfony/maker-bundle": {
         "version": "1.0",
@@ -162,13 +352,51 @@
     "symfony/orm-pack": {
         "version": "v2.1.0"
     },
+    "symfony/polyfill-ctype": {
+        "version": "v1.18.0"
+    },
+    "symfony/polyfill-intl-grapheme": {
+        "version": "v1.22.0"
+    },
+    "symfony/polyfill-intl-normalizer": {
+        "version": "v1.22.0"
+    },
+    "symfony/polyfill-mbstring": {
+        "version": "v1.22.0"
+    },
+    "symfony/polyfill-php73": {
+        "version": "v1.22.0"
+    },
+    "symfony/polyfill-php80": {
+        "version": "v1.22.0"
+    },
     "symfony/profiler-pack": {
         "version": "v1.0.5"
     },
     "symfony/proxy-manager-bridge": {
         "version": "v5.2.2"
     },
+    "symfony/routing": {
+        "version": "5.1",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "5.1",
+            "ref": "b4f3e7c95e38b606eef467e8a42a8408fc460c43"
+        },
+        "files": [
+            "apps/CauldronOverflowWeb/config/packages/prod/routing.yaml",
+            "apps/CauldronOverflowWeb/config/packages/routing.yaml",
+            "apps/CauldronOverflowWeb/config/routes.yaml"
+        ]
+    },
+    "symfony/service-contracts": {
+        "version": "v2.2.0"
+    },
     "symfony/stopwatch": {
+        "version": "v5.2.1"
+    },
+    "symfony/string": {
         "version": "v5.2.1"
     },
     "symfony/translation": {
@@ -207,6 +435,12 @@
     "symfony/twig-pack": {
         "version": "v1.0.1"
     },
+    "symfony/var-dumper": {
+        "version": "v5.2.1"
+    },
+    "symfony/var-exporter": {
+        "version": "v5.2.1"
+    },
     "symfony/web-profiler-bundle": {
         "version": "3.3",
         "recipe": {
@@ -221,10 +455,19 @@
             "apps/CauldronOverflowWeb/config/routes/dev/web_profiler.yaml"
         ]
     },
+    "symfony/yaml": {
+        "version": "v5.2.1"
+    },
+    "theseer/tokenizer": {
+        "version": "1.2.0"
+    },
     "twig/extra-bundle": {
         "version": "v3.2.1"
     },
     "twig/twig": {
         "version": "v3.2.1"
+    },
+    "webmozart/assert": {
+        "version": "1.9.1"
     }
 }

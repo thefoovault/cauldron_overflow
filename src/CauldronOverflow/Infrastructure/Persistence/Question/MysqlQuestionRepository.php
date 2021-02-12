@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace CauldronOverflow\Infrastructure\Persistence\Question;
 
-use CauldronOverflow\Domain\Question;
-use CauldronOverflow\Domain\QuestionRepository;
+use CauldronOverflow\Domain\Question\Question;
+use CauldronOverflow\Domain\Question\QuestionRepository;
 use Shared\Infrastructure\Persistence\DoctrineRepository;
 
 class MysqlQuestionRepository extends DoctrineRepository implements QuestionRepository

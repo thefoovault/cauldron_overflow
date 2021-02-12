@@ -1,6 +1,6 @@
 <doctrine-mapping>
 
-    <entity name="CauldronOverflow\Domain\Question" table="question">
+    <entity name="CauldronOverflow\Domain\Question\Question" table="question">
         <id name="id" type="guid">
             <generator strategy="UUID" />
         </id>

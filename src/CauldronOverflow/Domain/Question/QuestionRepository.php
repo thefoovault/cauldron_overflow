@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CauldronOverflow\Domain;
+namespace CauldronOverflow\Domain\Question;
 
 interface QuestionRepository
 {

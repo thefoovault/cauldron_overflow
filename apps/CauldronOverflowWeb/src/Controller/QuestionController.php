@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace CauldronOverflowWeb\Controller;
 
-use CauldronOverflow\Domain\Question;
-use CauldronOverflow\Domain\QuestionRepository;
+use CauldronOverflow\Domain\Question\Question;
+use CauldronOverflow\Domain\Question\QuestionRepository;
 use DateTime;
 use Ramsey\Uuid\Uuid;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

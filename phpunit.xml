@@ -24,6 +24,11 @@
         <ini name="date.timezone" value="UTC"/>
         <ini name="error_reporting" value="-1"/>
         <env name="APP_ENV" value="test"/>
+
+        <!-- ###+ symfony/framework-bundle ### -->
+        <env name="APP_ENV" value="dev"/>
+        <env name="APP_SECRET" value="3611f471da2f946b263f2d72b5212ff7"/>
+        <!-- ###- symfony/framework-bundle ### -->
     </php>
 
     <testsuites>
