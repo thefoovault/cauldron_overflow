@@ -1,0 +1,15 @@
+<doctrine-mapping>
+
+    <entity name="CauldronOverflow\Domain\Answer\Answer" table="answer">
+        <id name="id" type="guid">
+            <generator strategy="UUID" />
+        </id>
+
+        <field name="answer" type="text" />
+        <field name="votes" type="integer" />
+        <field name="createdAt" column="created_at" type="datetime" nullable="true" />
+
+        <many-to-one field="question" target-entity="CauldronOverflow\Domain\Question\Question" />
+    </entity>
+
+</doctrine-mapping>
