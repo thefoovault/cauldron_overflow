@@ -9,7 +9,9 @@
         <field name="votes" type="integer" />
         <field name="createdAt" column="created_at" type="datetime" nullable="true" />
 
-        <many-to-one field="question" target-entity="CauldronOverflow\Domain\Question\Question" />
+        <many-to-one field="question" target-entity="CauldronOverflow\Domain\Question\Question">
+            <join-column nullable="false" />
+        </many-to-one>
     </entity>
 
 </doctrine-mapping>

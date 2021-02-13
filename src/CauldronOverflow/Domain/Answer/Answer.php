@@ -16,13 +16,13 @@ class Answer implements Entity
     private int $votes;
     private DateTime $createdAt;
 
-    public function __construct(string $id, string $answer, Question $question, int $votes, DateTime $createdAt)
+    public function __construct(string $id, string $answer, Question $question, DateTime $createdAt, int $votes = 0)
     {
         $this->id = $id;
         $this->answer = $answer;
         $this->question = $question;
-        $this->votes = $votes;
         $this->createdAt = $createdAt;
+        $this->votes = $votes;
     }
 
     public function id(): string

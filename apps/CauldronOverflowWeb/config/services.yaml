@@ -19,3 +19,7 @@ services:
   CauldronOverflow\Infrastructure\Persistence\Question\MysqlQuestionRepository:
     arguments:
       $entityManager: '@doctrine.orm.entity_manager'
+
+  CauldronOverflow\Infrastructure\Persistence\Answer\MysqlAnswerRepository:
+    arguments:
+      $entityManager: '@doctrine.orm.entity_manager'
