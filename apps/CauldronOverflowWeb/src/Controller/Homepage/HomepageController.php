@@ -4,15 +4,18 @@ declare(strict_types=1);
 
 namespace CauldronOverflowWeb\Controller\Homepage;
 
-use CauldronOverflow\Domain\Question\QuestionRepository;
+use CauldronOverflow\Application\Question\Show\ShowQuestionsQuery;
 use Shared\Infrastructure\Symfony\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
 class HomepageController extends Controller
 {
-    public function __invoke(QuestionRepository $questionRepository): Response
+    public function __invoke(): Response
     {
-        $questions = $questionRepository->findAllOrderedByNewest();
+        $questions = $this->ask(
+            new ShowQuestionsQuery()
+        );
+
         return $this->render(
             'question/homepage.html.twig',
             [

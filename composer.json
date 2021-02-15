@@ -47,7 +47,8 @@
     "symfony/proxy-manager-bridge": "^5.2",
     "ext-json": "^7.4",
     "ramsey/uuid": "^4.1",
-    "knplabs/knp-time-bundle": "^1.15"
+    "knplabs/knp-time-bundle": "^1.15",
+    "symfony/messenger": "^5.2"
   },
   "extra": {
     "bin-dir": "apps/CauldronOverflowWeb/bin",

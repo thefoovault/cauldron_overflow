@@ -23,3 +23,13 @@ services:
   CauldronOverflow\Infrastructure\Persistence\Answer\MysqlAnswerRepository:
     arguments:
       $entityManager: '@doctrine.orm.entity_manager'
+
+  _instanceof:
+    Shared\Domain\Bus\Query\QueryHandler:
+      tags:
+        - { name: messenger.message_handler, bus: query.bus }
+
+framework:
+  messenger:
+    buses:
+      query.bus:

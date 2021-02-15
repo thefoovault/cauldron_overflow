@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="row">
-            {% for question in questions %}
+            {% for question in questions.questionsResponse %}
             <div class="col-12">
                 <div style="box-shadow: 2px 3px 9px 4px rgba(0,0,0,0.04);">
                     <div class="q-container p-4">
@@ -38,7 +38,7 @@
                     </div>
                     <a class="answer-link" href="{{ path('show', { slug: question.slug }) }}" style="color: #fff;">
                         <p class="q-display-response text-center p-3">
-                            <i class="fa fa-magic magic-wand"></i> {{ question.formattedVotes }} answers
+                            <i class="fa fa-magic magic-wand"></i> {{ question.votes }} answers
                         </p>
                     </a>
                 </div>
