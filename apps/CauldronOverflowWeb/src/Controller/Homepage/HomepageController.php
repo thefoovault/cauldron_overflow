@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace CauldronOverflowWeb\Controller\Homepage;
 
-use CauldronOverflow\Application\Question\Show\ShowQuestionsQuery;
+use CauldronOverflow\Application\Question\ShowAll\ShowQuestionsQuery;
 use Shared\Infrastructure\Symfony\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
