@@ -7,7 +7,7 @@ namespace CauldronOverflow\Application\Question;
 use CauldronOverflow\Domain\Question\Question;
 use Shared\Domain\Bus\Query\Response;
 
-class QuestionsResponse implements Response
+final class QuestionsResponse implements Response
 {
     /** @var QuestionResponse[] */
     private array $questionsResponse;

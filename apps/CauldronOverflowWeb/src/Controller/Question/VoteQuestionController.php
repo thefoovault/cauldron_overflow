@@ -8,7 +8,7 @@ use CauldronOverflow\Domain\Question\QuestionRepository;
 use Shared\Infrastructure\Symfony\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
-class VoteQuestionController extends Controller
+final class VoteQuestionController extends Controller
 {
     public function __invoke(string $slug, string $direction, QuestionRepository $questionRepository): Response
     {

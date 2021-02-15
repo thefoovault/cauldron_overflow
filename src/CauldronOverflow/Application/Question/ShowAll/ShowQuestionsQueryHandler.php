@@ -7,7 +7,7 @@ namespace CauldronOverflow\Application\Question\ShowAll;
 use CauldronOverflow\Application\Question\QuestionsResponse;
 use Shared\Domain\Bus\Query\QueryHandler;
 
-class ShowQuestionsQueryHandler implements QueryHandler
+final class ShowQuestionsQueryHandler implements QueryHandler
 {
     private ShowQuestionsService $service;
 

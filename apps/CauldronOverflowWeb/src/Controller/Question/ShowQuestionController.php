@@ -9,7 +9,7 @@ use CauldronOverflow\Domain\Question\QuestionRepository;
 use Shared\Infrastructure\Symfony\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
-class ShowQuestionController extends Controller
+final class ShowQuestionController extends Controller
 {
     public function __invoke($slug, QuestionRepository $questionRepository, AnswerRepository $answerRepository): Response
     {

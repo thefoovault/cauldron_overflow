@@ -8,7 +8,7 @@ use CauldronOverflow\Domain\Question\Question;
 use CauldronOverflow\Domain\Question\QuestionRepository;
 use Shared\Infrastructure\Persistence\DoctrineRepository;
 
-class MysqlQuestionRepository extends DoctrineRepository implements QuestionRepository
+final class MysqlQuestionRepository extends DoctrineRepository implements QuestionRepository
 {
     public function save(Question $question): void
     {

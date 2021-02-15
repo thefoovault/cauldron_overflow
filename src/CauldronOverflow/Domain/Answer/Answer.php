@@ -8,7 +8,7 @@ use CauldronOverflow\Domain\Question\Question;
 use DateTime;
 use Shared\Domain\Entity;
 
-class Answer implements Entity
+final class Answer implements Entity
 {
     private string $id;
     private string $answer;

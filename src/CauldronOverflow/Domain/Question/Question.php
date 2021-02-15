@@ -7,7 +7,7 @@ namespace CauldronOverflow\Domain\Question;
 use DateTime;
 use Shared\Domain\Entity;
 
-class Question implements Entity
+final class Question implements Entity
 {
     private string $id;
     private string $name;

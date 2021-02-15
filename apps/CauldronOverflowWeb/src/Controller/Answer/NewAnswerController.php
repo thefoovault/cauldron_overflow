@@ -13,7 +13,7 @@ use Shared\Infrastructure\Symfony\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class NewAnswerController extends Controller
+final class NewAnswerController extends Controller
 {
     public function __invoke(string $slug, Request $request, QuestionRepository $questionRepository, AnswerRepository $answerRepository): Response
     {

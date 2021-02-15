@@ -6,8 +6,9 @@ namespace CauldronOverflow\Application\Question;
 
 use CauldronOverflow\Domain\Question\Question;
 use DateTime;
+use Shared\Domain\Bus\Query\Response;
 
-class QuestionResponse
+final class QuestionResponse implements Response
 {
     private string $id;
     private string $name;

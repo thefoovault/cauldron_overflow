@@ -8,7 +8,7 @@ use CauldronOverflow\Application\Question\ShowAll\ShowQuestionsQuery;
 use Shared\Infrastructure\Symfony\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
-class HomepageController extends Controller
+final class HomepageController extends Controller
 {
     public function __invoke(): Response
     {

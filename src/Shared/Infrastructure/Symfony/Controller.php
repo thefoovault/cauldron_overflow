@@ -9,7 +9,7 @@ use Shared\Domain\Bus\Query\QueryBus;
 use Shared\Domain\Bus\Query\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class Controller extends AbstractController
+abstract class Controller extends AbstractController
 {
     private QueryBus $queryBus;
 

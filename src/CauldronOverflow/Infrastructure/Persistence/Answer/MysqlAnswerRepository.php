@@ -9,7 +9,7 @@ use CauldronOverflow\Domain\Answer\AnswerRepository;
 use CauldronOverflow\Domain\Question\Question;
 use Shared\Infrastructure\Persistence\DoctrineRepository;
 
-class MysqlAnswerRepository extends DoctrineRepository implements AnswerRepository
+final class MysqlAnswerRepository extends DoctrineRepository implements AnswerRepository
 {
     public function save(Answer $answer): void
     {
