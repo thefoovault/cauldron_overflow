@@ -40,13 +40,29 @@ class Answer implements Entity
         return $this->question;
     }
 
-    public function vote(): int
+    public function createdAt(): DateTime
+    {
+        return $this->createdAt;
+    }
+
+    public function votes(): int
     {
         return $this->votes;
     }
 
-    public function createdAt(): DateTime
+    public function formattedVotes(): string
     {
-        return $this->createdAt;
+        $prefix = $this->votes() >=0 ? '+' : '-';
+        return sprintf('%s %d', $prefix, abs($this->votes()));
+    }
+
+    public function upVote(): void
+    {
+        $this->votes++;
+    }
+
+    public function downVote(): void
+    {
+        $this->votes--;
     }
 }

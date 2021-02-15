@@ -6,6 +6,7 @@ namespace CauldronOverflow\Infrastructure\Persistence\Answer;
 
 use CauldronOverflow\Domain\Answer\Answer;
 use CauldronOverflow\Domain\Answer\AnswerRepository;
+use CauldronOverflow\Domain\Question\Question;
 use Shared\Infrastructure\Persistence\DoctrineRepository;
 
 class MysqlAnswerRepository extends DoctrineRepository implements AnswerRepository
@@ -13,5 +14,14 @@ class MysqlAnswerRepository extends DoctrineRepository implements AnswerReposito
     public function save(Answer $answer): void
     {
         $this->persist($answer);
+    }
+
+    public function findBy(Question $question): array
+    {
+        return $this->repository(Answer::class)->findBy(
+            [
+                'question' => $question
+            ]
+        );
     }
 }

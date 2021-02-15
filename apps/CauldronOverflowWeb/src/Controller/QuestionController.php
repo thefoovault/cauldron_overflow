@@ -27,7 +27,7 @@ class QuestionController extends AbstractController
         );
     }
 
-    public function show($slug, QuestionRepository $questionRepository): Response
+    public function show($slug, QuestionRepository $questionRepository, AnswerRepository $answerRepository): Response
     {
         $question = $questionRepository->findBySlug($slug);
 
@@ -35,11 +35,7 @@ class QuestionController extends AbstractController
             throw $this->createNotFoundException(sprintf('no question found for slug "%s"', $slug));
         }
 
-        $answers = [
-            'Make sure your cat is sitting `purrrfectly` still 🤣',
-            'Honestly, I like furry shoes better than MY cat',
-            'Maybe... try saying the spell backwards?',
-        ];
+        $answers = $answerRepository->findBy($question);
 
         return $this->render('question/show.html.twig',
             [
