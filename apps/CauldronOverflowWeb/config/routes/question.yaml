@@ -1,0 +1,14 @@
+new:
+  path: /questions/new
+  controller: CauldronOverflowWeb\Controller\Question\NewQuestionController
+  methods: PUT
+
+show:
+  path: /questions/{slug}
+  controller: CauldronOverflowWeb\Controller\Question\ShowQuestionController
+  methods: GET
+
+voteQuestion:
+  path: /questions/{slug}/vote/{direction<up|down>}
+  controller: CauldronOverflowWeb\Controller\Question\VoteQuestionController
+  methods: POST

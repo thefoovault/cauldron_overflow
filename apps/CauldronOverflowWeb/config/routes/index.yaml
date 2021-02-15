@@ -1,24 +1,4 @@
 index:
   path: /
-  controller: CauldronOverflowWeb\Controller\QuestionController::homepage
+  controller: CauldronOverflowWeb\Controller\Homepage\HomepageController
   methods: GET
-
-new:
-  path: /questions/new
-  controller: CauldronOverflowWeb\Controller\QuestionController::new
-  methods: PUT
-
-show:
-  path: /questions/{slug}
-  controller: CauldronOverflowWeb\Controller\QuestionController::show
-  methods: GET
-
-voteQuestion:
-  path: /questions/{slug}/vote/{direction<up|down>}
-  controller: CauldronOverflowWeb\Controller\QuestionController::vote
-  methods: POST
-
-newAnswer:
-  path: /questions/{slug}/answer/new
-  controller: CauldronOverflowWeb\Controller\QuestionController::newAnswer
-  methods: PUT
