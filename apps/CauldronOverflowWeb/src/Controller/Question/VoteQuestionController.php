@@ -7,13 +7,12 @@ namespace CauldronOverflowWeb\Controller\Question;
 use CauldronOverflow\Application\Question\QuestionResponse;
 use CauldronOverflow\Application\Question\ShowOne\ShowOneQuestionQuery;
 use CauldronOverflow\Application\Question\Vote\VoteQuestionCommand;
-use CauldronOverflow\Domain\Question\QuestionRepository;
 use Shared\Infrastructure\Symfony\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
 final class VoteQuestionController extends Controller
 {
-    public function __invoke(string $slug, string $direction, QuestionRepository $questionRepository): Response
+    public function __invoke(string $slug, string $direction): Response
     {
         $this->dispatch(
             new VoteQuestionCommand(
