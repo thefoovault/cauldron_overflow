@@ -24,12 +24,22 @@ services:
     arguments:
       $entityManager: '@doctrine.orm.entity_manager'
 
+  Shared\Infrastructure\Bus\Query\SymfonyQueryBus:
+    arguments:
+      $bus: '@query.bus'
+
   _instanceof:
     Shared\Domain\Bus\Query\QueryHandler:
       tags:
         - { name: messenger.message_handler, bus: query.bus }
 
+    Shared\Domain\Bus\Command\CommandHandler:
+      tags:
+        - { name: messenger.message_handler, bus: command.bus }
+
 framework:
   messenger:
+    default_bus: command.bus
     buses:
       query.bus:
+      command.bus:

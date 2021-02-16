@@ -1,6 +1,6 @@
 new:
   path: /questions/new
-  controller: CauldronOverflowWeb\Controller\Question\NewQuestionController
+  controller: CauldronOverflowWeb\Controller\Question\CreateQuestionController
   methods: PUT
 
 show:
