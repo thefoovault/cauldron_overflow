@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace CauldronOverflowWeb\Controller\Question;
 
+use CauldronOverflow\Application\Question\ShowBySlug\ShowQuestionBySlugQuery;
+use CauldronOverflow\Application\Question\ShowBySlug\ShowQuestionBySlugResponse;
 use CauldronOverflow\Domain\Answer\AnswerRepository;
 use CauldronOverflow\Domain\Question\QuestionRepository;
 use Shared\Infrastructure\Symfony\Controller;
@@ -13,18 +15,15 @@ final class ShowQuestionController extends Controller
 {
     public function __invoke($slug, QuestionRepository $questionRepository, AnswerRepository $answerRepository): Response
     {
-        $question = $questionRepository->findBySlug($slug);
-
-        if($question === null) {
-            throw $this->createNotFoundException(sprintf('no question found for slug "%s"', $slug));
-        }
-
-        $answers = $answerRepository->findBy($question);
+        /** @var ShowQuestionBySlugResponse $response */
+        $response = $this->ask(
+            new ShowQuestionBySlugQuery($slug)
+        );
 
         return $this->render('question/show.html.twig',
             [
-                "question" => $question,
-                "answers" => $answers
+                "question" => $response->questionResponse(),
+                "answers" => $response->answersResponse()
             ]
         );
     }

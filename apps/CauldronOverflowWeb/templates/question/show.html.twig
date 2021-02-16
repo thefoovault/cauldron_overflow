@@ -22,7 +22,7 @@
                                     <div class="vote-arrows flex-fill pt-2 vote-arrows-alt" style="min-width: 90px;" data-slug="{{ question.slug }}">
                                         <a class="vote-up" href="#" data-direction="up"><i class="far fa-arrow-alt-circle-up"></i></a>
                                         <a class="vote-down" href="#" data-direction="down"><i class="far fa-arrow-alt-circle-down"></i></a>
-                                        <span class="js-vote-total">{{ question.formattedVotes }}</span>
+                                        <span class="js-vote-total">{{ question.votes }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -44,7 +44,7 @@
             <button class="btn btn-sm btn-secondary">Submit an Answer</button>
         </div>
         <ul class="list-unstyled">
-            {% for answer in answers %}
+            {% for answer in answers.answersResponse %}
                 <li class="mb-4">
                     <div class="d-flex justify-content-center">
                         <div class="mr-2 pt-2">
@@ -57,7 +57,7 @@
                         <div class="vote-arrows flex-fill pt-2 js-vote-arrows" style="min-width: 90px;">
                             <a class="vote-up" href="#" data-direction="up"><i class="far fa-arrow-alt-circle-up"></i></a>
                             <a class="vote-down" href="#" data-direction="down"><i class="far fa-arrow-alt-circle-down"></i></a>
-                            <span class="js-vote-total">{{ answer.formattedVotes }}</span>
+                            <span class="js-vote-total">{{ answer.votes }}</span>
                         </div>
                     </div>
                 </li>
