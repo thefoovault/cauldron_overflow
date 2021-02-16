@@ -1,4 +1,4 @@
 newAnswer:
   path: /questions/{slug}/answer/new
-  controller: CauldronOverflowWeb\Controller\Answer\NewAnswerController
+  controller: CauldronOverflowWeb\Controller\Answer\CreateAnswerController
   methods: PUT
