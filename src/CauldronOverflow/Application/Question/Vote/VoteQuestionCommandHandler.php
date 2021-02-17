@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace CauldronOverflow\Application\Question\Vote;
 
 use CauldronOverflow\Application\Question\ShowBySlug\ShowQuestionBySlugService;
+use CauldronOverflow\Domain\Question\QuestionSlug;
 use Shared\Domain\Bus\Command\CommandHandler;
 
 final class VoteQuestionCommandHandler implements CommandHandler
@@ -22,7 +23,9 @@ final class VoteQuestionCommandHandler implements CommandHandler
 
     public function __invoke(VoteQuestionCommand $voteQuestionCommand): void
     {
-        $question = $this->questionBySlugService->__invoke($voteQuestionCommand->slug());
+        $question = $this->questionBySlugService->__invoke(
+            new QuestionSlug($voteQuestionCommand->slug())
+        );
 
         $this->voteQuestionService->__invoke(
             $question,

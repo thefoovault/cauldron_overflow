@@ -4,25 +4,25 @@ declare(strict_types=1);
 
 namespace CauldronOverflow\Domain\Question;
 
-use DateTime;
+use DateTimeImmutable;
 use Shared\Domain\Entity;
 
 final class Question implements Entity
 {
-    private string $id;
-    private string $name;
-    private string $question;
-    private string $slug;
-    private DateTime $createdAt;
-    private int $votes;
+    private QuestionId $id;
+    private QuestionName $name;
+    private QuestionBody $question;
+    private QuestionSlug $slug;
+    private DateTimeImmutable $createdAt;
+    private QuestionVotes $votes;
 
     public function __construct(
-        string $id,
-        string $name,
-        string $question,
-        string $slug,
-        DateTime $createdAt,
-        int $votes = 0
+        QuestionId $id,
+        QuestionName $name,
+        QuestionBody $question,
+        QuestionSlug $slug,
+        DateTimeImmutable $createdAt,
+        QuestionVotes $votes
     ) {
         $this->id = $id;
         $this->name = $name;
@@ -32,49 +32,53 @@ final class Question implements Entity
         $this->votes = $votes;
     }
 
-    public function id(): string
+    public function id(): QuestionId
     {
         return $this->id;
     }
 
-    public function name(): string
+    public function name(): QuestionName
     {
         return $this->name;
     }
 
-    public function question(): string
+    public function question(): QuestionBody
     {
         return $this->question;
     }
 
-    public function slug(): string
+    public function slug(): QuestionSlug
     {
         return $this->slug;
     }
 
-    public function createdAt(): DateTime
+    public function createdAt(): DateTimeImmutable
     {
         return $this->createdAt;
     }
 
-    public function votes(): int
+    public function votes(): QuestionVotes
     {
         return $this->votes;
     }
 
     public function formattedVotes(): string
     {
-        $prefix = $this->votes() >=0 ? '+' : '-';
-        return sprintf('%s %d', $prefix, abs($this->votes()));
+        $prefix = $this->votes->value() >=0 ? '+' : '-';
+        return sprintf('%s %d', $prefix, abs($this->votes()->value()));
     }
 
     public function upVote(): void
     {
-        $this->votes++;
+        $this->votes = $this->votes->add(
+            new QuestionVotes(1)
+        );
     }
 
     public function downVote(): void
     {
-        $this->votes--;
+        $this->votes = $this->votes->subtract(
+            new QuestionVotes(1)
+        );
     }
 }

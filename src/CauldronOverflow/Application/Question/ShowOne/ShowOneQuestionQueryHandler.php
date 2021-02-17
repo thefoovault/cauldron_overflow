@@ -6,6 +6,7 @@ namespace CauldronOverflow\Application\Question\ShowOne;
 
 use CauldronOverflow\Application\Question\QuestionResponse;
 use CauldronOverflow\Application\Question\ShowBySlug\ShowQuestionBySlugService;
+use CauldronOverflow\Domain\Question\QuestionSlug;
 use Shared\Domain\Bus\Query\QueryHandler;
 
 final class ShowOneQuestionQueryHandler implements QueryHandler
@@ -20,7 +21,9 @@ final class ShowOneQuestionQueryHandler implements QueryHandler
 
     public function __invoke(ShowOneQuestionQuery $showOneQuestionQuery): ?QuestionResponse
     {
-        $question = $this->questionBySlugService->__invoke($showOneQuestionQuery->slug());
+        $question = $this->questionBySlugService->__invoke(
+            new QuestionSlug($showOneQuestionQuery->slug())
+        );
         if ($question === null) {
             return null;
         }

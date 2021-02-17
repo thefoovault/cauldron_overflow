@@ -1,0 +1,7 @@
+<doctrine-mapping>
+
+    <embeddable name="CauldronOverflow\Domain\Question\QuestionName">
+        <field name="value" type="string" column="name" length="255" />
+    </embeddable>
+
+</doctrine-mapping>

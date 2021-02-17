@@ -1,19 +1,17 @@
 <doctrine-mapping>
 
     <entity name="CauldronOverflow\Domain\Question\Question" table="question">
-        <id name="id" type="guid">
-            <generator strategy="UUID" />
-        </id>
+        <id name="id" type="question_id" length="36"/>
 
         <unique-constraints>
             <unique-constraint columns="slug" name="unique_slug" />
         </unique-constraints>
 
-        <field name="name" type="string" length="255" />
-        <field name="question" type="text" />
-        <field name="slug" type="string" length="100"  />
-        <field name="createdAt" column="created_at" type="datetime" nullable="true" />
-        <field name="votes" type="integer" />
+        <embedded name="name" class="CauldronOverflow\Domain\Question\QuestionName" use-column-prefix="false" />
+        <embedded name="question" class="CauldronOverflow\Domain\Question\QuestionBody" use-column-prefix="false" />
+        <embedded name="slug" class="CauldronOverflow\Domain\Question\QuestionSlug" use-column-prefix="false" />
+        <field name="createdAt" column="created_at" type="datetime_immutable" />
+        <embedded name="votes" class="CauldronOverflow\Domain\Question\QuestionVotes" use-column-prefix="false"/>
     </entity>
 
 </doctrine-mapping>

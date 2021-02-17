@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace CauldronOverflow\Application\Question;
 
 use CauldronOverflow\Domain\Question\Question;
-use DateTime;
+use DateTimeImmutable;
 use Shared\Domain\Bus\Query\Response;
 
 final class QuestionResponse implements Response
@@ -14,7 +14,7 @@ final class QuestionResponse implements Response
     private string $name;
     private string $question;
     private string $slug;
-    private DateTime $createdAt;
+    private DateTimeImmutable $createdAt;
     private string $votes;
 
     public function __construct(
@@ -22,7 +22,7 @@ final class QuestionResponse implements Response
         string $name,
         string $question,
         string $slug,
-        DateTime $createdAt,
+        DateTimeImmutable $createdAt,
         string $votes
     ) {
         $this->id = $id;
@@ -36,10 +36,10 @@ final class QuestionResponse implements Response
     public static function fromQuestion(Question $question): self
     {
         return new self(
-            $question->id(),
-            $question->name(),
-            $question->question(),
-            $question->slug(),
+            $question->id()->value(),
+            $question->name()->value(),
+            $question->question()->value(),
+            $question->slug()->value(),
             $question->createdAt(),
             $question->formattedVotes()
         );
@@ -65,7 +65,7 @@ final class QuestionResponse implements Response
         return $this->slug;
     }
 
-    public function createdAt(): DateTime
+    public function createdAt(): DateTimeImmutable
     {
         return $this->createdAt;
     }

@@ -6,6 +6,7 @@ namespace CauldronOverflow\Application\Question\ShowBySlug;
 
 use CauldronOverflow\Domain\Question\Question;
 use CauldronOverflow\Domain\Question\QuestionRepository;
+use CauldronOverflow\Domain\Question\QuestionSlug;
 
 final class ShowQuestionBySlugService
 {
@@ -17,7 +18,7 @@ final class ShowQuestionBySlugService
         $this->questionRepository = $questionRepository;
     }
 
-    public function __invoke(string $slug): ?Question
+    public function __invoke(QuestionSlug $slug): ?Question
     {
         return $this->questionRepository->findBySlug($slug);
     }

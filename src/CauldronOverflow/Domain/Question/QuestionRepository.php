@@ -8,7 +8,7 @@ interface QuestionRepository
 {
     public function save(Question $question): void;
 
-    public function findBySlug(string $slug): ?Question;
+    public function findBySlug(QuestionSlug $slug): ?Question;
 
     public function findAllOrderedByNewest(): array;
 }

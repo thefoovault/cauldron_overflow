@@ -5,9 +5,13 @@ declare(strict_types=1);
 namespace CauldronOverflow\Application\Question\Create;
 
 use CauldronOverflow\Domain\Question\Question;
-use DateTime;
-use Ramsey\Uuid\Uuid;
+use CauldronOverflow\Domain\Question\QuestionBody;
+use CauldronOverflow\Domain\Question\QuestionId;
+use CauldronOverflow\Domain\Question\QuestionName;
+use CauldronOverflow\Domain\Question\QuestionSlug;
+use CauldronOverflow\Domain\Question\QuestionVotes;
 use Shared\Domain\Bus\Command\CommandHandler;
+use Shared\Domain\ValueObject\Uuid;
 
 class CreateQuestionCommandHandler implements CommandHandler
 {
@@ -22,11 +26,12 @@ class CreateQuestionCommandHandler implements CommandHandler
     public function __invoke(CreateQuestionCommand $createQuestionCommand): void
     {
         $question = new Question(
-            Uuid::uuid4()->serialize(),
-            $createQuestionCommand->name(),
-            $createQuestionCommand->question(),
-            $createQuestionCommand->slug(),
-            new DateTime()
+            QuestionId::generate(),
+            new QuestionName($createQuestionCommand->name()),
+            new QuestionBody($createQuestionCommand->question()),
+            new QuestionSlug($createQuestionCommand->slug()),
+            new \DateTimeImmutable(),
+            new QuestionVotes()
         );
 
         $this->service->__invoke($question);

@@ -6,6 +6,7 @@ namespace CauldronOverflow\Application\Answer\Create;
 
 use CauldronOverflow\Application\Question\ShowBySlug\ShowQuestionBySlugService;
 use CauldronOverflow\Domain\Answer\Answer;
+use CauldronOverflow\Domain\Question\QuestionSlug;
 use DateTime;
 use Ramsey\Uuid\Uuid;
 use Shared\Domain\Bus\Command\CommandHandler;
@@ -25,7 +26,9 @@ final class CreateAnswerCommandHandler implements CommandHandler
 
     public function __invoke(CreateAnswerCommand $createAnswerCommand): void
     {
-        $question = $this->questionBySlugService->__invoke($createAnswerCommand->slug());
+        $question = $this->questionBySlugService->__invoke(
+            new QuestionSlug($createAnswerCommand->slug())
+        );
 
         $answer = new Answer(
             Uuid::uuid4()->serialize(),

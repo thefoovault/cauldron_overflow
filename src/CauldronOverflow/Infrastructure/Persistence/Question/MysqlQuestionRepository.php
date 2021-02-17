@@ -6,6 +6,7 @@ namespace CauldronOverflow\Infrastructure\Persistence\Question;
 
 use CauldronOverflow\Domain\Question\Question;
 use CauldronOverflow\Domain\Question\QuestionRepository;
+use CauldronOverflow\Domain\Question\QuestionSlug;
 use Shared\Infrastructure\Persistence\DoctrineRepository;
 
 final class MysqlQuestionRepository extends DoctrineRepository implements QuestionRepository
@@ -15,13 +16,13 @@ final class MysqlQuestionRepository extends DoctrineRepository implements Questi
         $this->persist($question);
     }
 
-    public function findBySlug(string $slug): ?Question
+    public function findBySlug(QuestionSlug $slug): ?Question
     {
-        return $this->repository(Question::class)->findOneBy(
-            [
-                'slug' => $slug
-            ]
-        );
+        return $this->repository(Question::class)->createQueryBuilder('q')
+            ->andWhere('q.slug.value = :slug')
+            ->setParameter('slug', $slug->value())
+            ->getQuery()
+            ->getSingleResult();
     }
 
     /**
