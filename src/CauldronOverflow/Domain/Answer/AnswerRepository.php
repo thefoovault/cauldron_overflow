@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace CauldronOverflow\Domain\Answer;
 
-use CauldronOverflow\Domain\Question\Question;
+use CauldronOverflow\Domain\Question\QuestionId;
 
 interface AnswerRepository
 {
     public function save(Answer $answer): void;
 
-    public function findBy(Question $question): array;
+    public function findByQuestion(QuestionId $questionId): array;
+
+    public function findById(AnswerId $answerId): ?Answer;
 }

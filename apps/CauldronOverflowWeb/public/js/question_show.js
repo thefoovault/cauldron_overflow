@@ -3,13 +3,14 @@ let $answerVotes = $('.js-vote-arrows');
 $answerVotes.find('a').on('click', (e) => {
     e.preventDefault();
 
+    let $answerId = $(e.currentTarget).parent().data('id')
     let $link = $(e.currentTarget);
 
     $.ajax({
-        url: '/comments/10/vote/' + $link.data('direction'),
+        url: '/comments/' + $answerId + '/vote/' + $link.data('direction'),
         method: 'POST'
     }).then((data) => {
-        $answerVotes.find('.js-vote-total').text(data.votes);
+        $(e.currentTarget).parent().find('.js-vote-total').text(data.votes);
     });
 });
 

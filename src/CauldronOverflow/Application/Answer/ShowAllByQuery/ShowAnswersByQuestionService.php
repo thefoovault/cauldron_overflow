@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace CauldronOverflow\Application\Answer\ShowAllByQuery;
 
 use CauldronOverflow\Domain\Answer\AnswerRepository;
-use CauldronOverflow\Domain\Question\Question;
+use CauldronOverflow\Domain\Question\QuestionId;
 
 final class ShowAnswersByQuestionService
 {
@@ -16,8 +16,8 @@ final class ShowAnswersByQuestionService
         $this->answerRepository = $answerRepository;
     }
 
-    public function __invoke(Question $question): array
+    public function __invoke(QuestionId $questionId): array
     {
-        return $this->answerRepository->findBy($question);
+        return $this->answerRepository->findByQuestion($questionId);
     }
 }

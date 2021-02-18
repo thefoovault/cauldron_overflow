@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace CauldronOverflow\Domain\Answer;
 
-use CauldronOverflow\Domain\Question\Question;
+use CauldronOverflow\Domain\Question\QuestionId;
 use DateTimeImmutable;
 use Shared\Domain\Entity;
 
@@ -12,20 +12,20 @@ final class Answer implements Entity
 {
     private AnswerId $id;
     private AnswerBody $answer;
-    private Question $question;
+    private QuestionId $questionId;
     private AnswerVotes $votes;
     private DateTimeImmutable $createdAt;
 
     public function __construct(
         AnswerId $id,
         AnswerBody $answer,
-        Question $question,
+        QuestionId $questionId,
         DateTimeImmutable $createdAt,
         AnswerVotes $votes
     ) {
         $this->id = $id;
         $this->answer = $answer;
-        $this->question = $question;
+        $this->questionId = $questionId;
         $this->createdAt = $createdAt;
         $this->votes = $votes;
     }
@@ -40,9 +40,9 @@ final class Answer implements Entity
         return $this->answer;
     }
 
-    public function question(): Question
+    public function question(): QuestionId
     {
-        return $this->question;
+        return $this->questionId;
     }
 
     public function createdAt(): DateTimeImmutable

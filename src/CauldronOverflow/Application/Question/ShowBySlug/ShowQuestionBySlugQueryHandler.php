@@ -33,7 +33,7 @@ final class ShowQuestionBySlugQueryHandler implements QueryHandler
             return null;
         }
 
-        $answers = $this->answersByQuestionService->__invoke($question);
+        $answers = $this->answersByQuestionService->__invoke($question->id());
 
         return new ShowQuestionBySlugResponse(
             QuestionResponse::fromQuestion($question),

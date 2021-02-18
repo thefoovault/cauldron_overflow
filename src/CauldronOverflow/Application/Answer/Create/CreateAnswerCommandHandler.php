@@ -35,7 +35,7 @@ final class CreateAnswerCommandHandler implements CommandHandler
         $answer = new Answer(
             AnswerId::generate(),
             new AnswerBody($createAnswerCommand->answer()),
-            $question,
+            $question->id(),
             new DateTimeImmutable(),
             new AnswerVotes()
         );
