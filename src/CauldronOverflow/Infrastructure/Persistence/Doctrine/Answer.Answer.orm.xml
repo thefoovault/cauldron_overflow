@@ -1,13 +1,13 @@
 <doctrine-mapping>
 
     <entity name="CauldronOverflow\Domain\Answer\Answer" table="answer">
-        <id name="id" type="guid">
+        <id name="id" type="answer_id">
             <generator strategy="UUID" />
         </id>
 
-        <field name="answer" type="text" />
-        <field name="votes" type="integer" />
-        <field name="createdAt" column="created_at" type="datetime" nullable="true" />
+        <embedded name="answer" class="CauldronOverflow\Domain\Answer\AnswerBody" use-column-prefix="false" />
+        <embedded name="votes" class="CauldronOverflow\Domain\Answer\AnswerVotes" use-column-prefix="false" />
+        <field name="createdAt" column="created_at" type="datetime_immutable" nullable="true" />
 
         <many-to-one field="question" target-entity="CauldronOverflow\Domain\Question\Question">
             <join-column nullable="false" />

@@ -6,9 +6,11 @@ namespace CauldronOverflow\Application\Answer\Create;
 
 use CauldronOverflow\Application\Question\ShowBySlug\ShowQuestionBySlugService;
 use CauldronOverflow\Domain\Answer\Answer;
+use CauldronOverflow\Domain\Answer\AnswerBody;
+use CauldronOverflow\Domain\Answer\AnswerId;
+use CauldronOverflow\Domain\Answer\AnswerVotes;
 use CauldronOverflow\Domain\Question\QuestionSlug;
-use DateTime;
-use Ramsey\Uuid\Uuid;
+use DateTimeImmutable;
 use Shared\Domain\Bus\Command\CommandHandler;
 
 final class CreateAnswerCommandHandler implements CommandHandler
@@ -31,10 +33,11 @@ final class CreateAnswerCommandHandler implements CommandHandler
         );
 
         $answer = new Answer(
-            Uuid::uuid4()->serialize(),
-            $createAnswerCommand->answer(),
+            AnswerId::generate(),
+            new AnswerBody($createAnswerCommand->answer()),
             $question,
-            new DateTime()
+            new DateTimeImmutable(),
+            new AnswerVotes()
         );
 
         $this->answerService->__invoke($answer);

@@ -1,0 +1,7 @@
+<doctrine-mapping>
+
+    <embeddable name="CauldronOverflow\Domain\Answer\AnswerBody">
+        <field name="value" type="text" column="answer" />
+    </embeddable>
+
+</doctrine-mapping>

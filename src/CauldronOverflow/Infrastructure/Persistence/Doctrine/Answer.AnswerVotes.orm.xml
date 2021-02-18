@@ -1,0 +1,7 @@
+<doctrine-mapping>
+
+    <embeddable name="CauldronOverflow\Domain\Answer\AnswerVotes">
+        <field name="value" type="integer" column="votes" />
+    </embeddable>
+
+</doctrine-mapping>
