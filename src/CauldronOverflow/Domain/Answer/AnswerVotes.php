@@ -6,7 +6,7 @@ namespace CauldronOverflow\Domain\Answer;
 
 use Shared\Domain\ValueObject\IntegerValueObject;
 
-class AnswerVotes extends IntegerValueObject
+final class AnswerVotes extends IntegerValueObject
 {
     public function __construct(int $value = 0)
     {
