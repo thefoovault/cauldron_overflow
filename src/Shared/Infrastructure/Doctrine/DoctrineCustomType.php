@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CauldronOverflow\Infrastructure\Persistence\Doctrine;
+namespace Shared\Infrastructure\Doctrine;
 
 interface DoctrineCustomType
 {
