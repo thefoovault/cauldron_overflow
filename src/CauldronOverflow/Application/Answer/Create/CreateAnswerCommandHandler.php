@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace CauldronOverflow\Application\Answer\Create;
 
 use CauldronOverflow\Application\Question\ShowBySlug\ShowQuestionBySlugService;
-use CauldronOverflow\Domain\Answer\Answer;
 use CauldronOverflow\Domain\Answer\AnswerBody;
 use CauldronOverflow\Domain\Answer\AnswerId;
 use CauldronOverflow\Domain\Answer\AnswerVotes;
@@ -32,14 +31,16 @@ final class CreateAnswerCommandHandler implements CommandHandler
             new QuestionSlug($createAnswerCommand->slug())
         );
 
-        $answer = new Answer(
+        if ($question === null) {
+            throw new \InvalidArgumentException(printf('Question with slug %s does not exist', $createAnswerCommand->slug()));
+        }
+
+        $this->answerService->__invoke(
             AnswerId::generate(),
             new AnswerBody($createAnswerCommand->answer()),
             $question->id(),
             new DateTimeImmutable(),
             new AnswerVotes()
         );
-
-        $this->answerService->__invoke($answer);
     }
 }
